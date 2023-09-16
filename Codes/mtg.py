@@ -5,4 +5,5 @@ def finish_sentence(sentence, n, corpus, randomize=False):
     # If randomize is false, choose the most probable next token
 
     # Step 1 - take corpus (which is already tokenized)
+    print(sentence, n, corpus, randomize)
     pass
