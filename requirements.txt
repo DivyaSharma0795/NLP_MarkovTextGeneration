@@ -1,0 +1,13 @@
+#List of Packages needed
+#datascience
+jupyter
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+#Others
+black
+click 
+pylint
+pytest
