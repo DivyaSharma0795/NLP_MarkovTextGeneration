@@ -8,7 +8,6 @@ numpy
 scikit-learn
 matplotlib
 seaborn
-random
 
 #  Specific to this project
 nltk
