@@ -70,8 +70,8 @@ def get_most_common(new_dict, randomise):
 def finish_sentence(sentence, n, corpus, randomize=False):
     if n == 0:
         n = 1
-    output_sentence = sentence
-    test_sent = sentence
+    output_sentence = sentence.copy()
+    test_sent = sentence.copy()
     l = len(sentence)
     while l < 10:
         n1 = min(n, len(test_sent) + 1)
@@ -82,7 +82,6 @@ def finish_sentence(sentence, n, corpus, randomize=False):
         while sub_dictionary == {}:
             n2 -= 1
             test_sentence = get_test_sent(test_sent, n2)
-            # print("inside", n2, test_sentence)
             sub_dictionary = get_sub_dictionary(test_sentence, n_split(corpus, n2), n2)
 
         most_common_occurrence = get_most_common(sub_dictionary, randomize)

@@ -12,6 +12,7 @@ seaborn
 #  Specific to this project
 nltk
 typing
+shutil
 
 #  Others - for the Github Workflows
 black
