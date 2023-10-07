@@ -1,5 +1,36 @@
 # This is a Python repository for my Markov Test Generation Project
 
+Markov Text Generation using n-grams to predict the next word for each iteration.
+The model has been trained on 'Sense and Sensibility' by Jane Austen
+
+Implementing a function of the form
+
+```
+finish_sentence(sentence, n, corpus, randomize=False)
+```
+
+that takes four arguments:
+. a sentence [list of tokens] that we're trying to build on,
+. n [int], the length of n-grams to use for prediction, and
+. a source corpus [list of tokens]
+. a flag indicating whether the process should be randomize [bool]
+
+and returns an extended sentence until the first ., ?, or ! is found OR until it has 10 total tokens.
+
+
+If the input flag randomize is false, choose at each step the single most probable next token. When two
+tokens are equally probable, choose the one that occurs first in the corpus. This is called a deterministic
+process. If randomize is true, draw the next word randomly from the appropriate distribution.
+Using stupid backoff ( ) and no smoothing.
+
+
+Sample Input: 'She was not'
+Sample Output: 'She was not in the world.'
+
+
+
+
+
 Files in this repository include:
 
 
