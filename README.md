@@ -1,31 +1,33 @@
 # This is a Python repository for my Markov Test Generation Project
 
-Markov Text Generation using n-grams to predict the next word for each iteration.
-The model has been trained on 'Sense and Sensibility' by Jane Austen
-
-Implementing a function of the form
+This project implements a Markov chain-based text generation function, `finish_sentence()`, in Python, trained on Jane Austen's "Sense and Sensibility." 
 
 ```
 finish_sentence(sentence, n, corpus, randomize=False)
 ```
 
-that takes four arguments:
-. a sentence [list of tokens] that we're trying to build on,
-. n [int], the length of n-grams to use for prediction, and
-. a source corpus [list of tokens]
-. a flag indicating whether the process should be randomize [bool]
+This function employs n-grams to predict the next word in a given sentence, mimicking the author's style. It takes four arguments:
 
-and returns an extended sentence until the first ., ?, or ! is found OR until it has 10 total tokens.
+* **`sentence` (list):** The partial sentence to be completed.
+* **`n` (int):** The n-gram length used for prediction (e.g., 2 for bigrams, 3 for trigrams).
+* **`corpus` (list):** The tokenized source text ("Sense and Sensibility").
+* **`randomize` (bool):** Flag to deterministically choose the most probable next word (False) or randomly sample from the n-gram probability distribution (True).
 
+The function iterates through the following steps:
 
-If the input flag randomize is false, choose at each step the single most probable next token. When two
-tokens are equally probable, choose the one that occurs first in the corpus. This is called a deterministic
-process. If randomize is true, draw the next word randomly from the appropriate distribution.
-Using stupid backoff ( ) and no smoothing.
+1. **Extract the n-gram context:** From the current sentence, extract the last n-1 words as the context.
+2. **Predict next word:**
+    * **Deterministic (False):** Identify the word with the highest probability following the given context in the n-gram model.
+    * **Random (True):** Sample a word from the n-gram probability distribution for the given context.
+3. **Append and check termination:** Add the predicted word to the sentence. Stop if a punctuation mark (. ? !) is encountered or the sentence reaches 10 tokens. Otherwise, repeat steps 1-3.
 
+This implementation utilizes **stupid backoff:** if an exact n-gram is not found in the corpus, the model falls back to lower-order n-grams (bigrams if trigrams fail, unigrams if bigrams fail). Additionally, **no smoothing** is applied to avoid introducing artificial probabilities.
 
-Sample Input: 'She was not'
-Sample Output: 'She was not in the world.'
+**Overall, this project showcases a Markov chain text generation algorithm with n-gram prediction, offering control over randomization and n-gram order. It provides a fun and technical tool for exploring Jane Austen's writing style and experimenting with text generation in Python.**
+
+*Sample Input:* 'She was not'
+
+*Sample Output:* 'She was not in the world.'
 
 
 
@@ -47,8 +49,9 @@ Files in this repository include:
 
 
 ## 4. Resources
-  -  This folder contains any other files relevant to this project. Currently, I have added -
-
+  This folder contains any other files relevant to this project. Currently, I have added -
+  -  `MTG.ipynb` - this file has the function
+  -  `generate_cases.py` - this file generates test cases for the above function
 
 ## 5. CI/CD Automation Files
 
